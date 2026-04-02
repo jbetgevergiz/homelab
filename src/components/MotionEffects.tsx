@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 export default function MotionEffects() {
   useEffect(() => {
     const heroName = document.querySelector('[data-hero-name]') as HTMLElement | null;
-    let rafId: number;
+    void heroName; // spring parallax removed
 
     // Hero name spring parallax removed — caused sticky/janky behavior on scroll
 
@@ -46,7 +46,7 @@ export default function MotionEffects() {
       });
     });
 
-    return () => { cancelAnimationFrame(rafId); };
+    return () => {};
   }, []);
 
   return null;
