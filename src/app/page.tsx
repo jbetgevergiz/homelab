@@ -62,7 +62,8 @@ export default function Home() {
       {/* Main */}
       <main className="lg:ml-64 flex-1">
         {/* Hero */}
-        <section className="mesh-bg min-h-screen flex flex-col justify-center px-8 py-20 max-w-5xl mx-auto">
+        <section className="mesh-bg min-h-screen flex flex-col justify-center relative">
+          <div className="px-8 py-20 max-w-5xl mx-auto w-full">
           <div className="mb-4">
             <span className="font-mono text-xs text-emerald-500/70">{greeting.text}</span>
             <span className="font-mono text-xs text-slate-600 ml-3">{greeting.note}</span>
@@ -91,6 +92,7 @@ export default function Home() {
             >
               <Github className="w-4 h-4" /> GitHub
             </a>
+          </div>
           </div>
         </section>
 

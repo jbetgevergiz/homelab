@@ -36,10 +36,11 @@ body {
 .mesh-bg {
   background-color: #0d1117;
   background-image:
-    radial-gradient(at 20% 50%, #631c874d 0%, transparent 50%),
-    radial-gradient(at 80% 20%, #1e3a8a40 0%, transparent 50%),
-    radial-gradient(at 60% 80%, #0f172acc 0%, transparent 50%);
-  background-size: 120% 120%, 110% 110%, 130% 130%;
+    radial-gradient(ellipse at 25% 50%, #631c8766 0%, transparent 60%),
+    radial-gradient(ellipse at 75% 20%, #1e3a8a55 0%, transparent 60%),
+    radial-gradient(ellipse at 55% 85%, #0f172aaa 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 70%, #4c1d9530 0%, transparent 50%);
+  background-size: 100% 100%;
   animation: meshShift 18s ease-in-out infinite;
 }
 
