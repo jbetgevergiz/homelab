@@ -1,2 +1,2 @@
-:HL["/homelab/_next/static/chunks/0-~dq19t6ymto.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"f4VWShORq4KPcDuBWGJm5"}
+:HL["/homelab/_next/static/chunks/01_acn.v~qybs.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"JF8DqHzWKjwYQWC4S2wxs"}
