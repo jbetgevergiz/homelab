@@ -2,66 +2,6 @@
 
 import { Github, Linkedin, ExternalLink, Mail } from "lucide-react";
 
-const homelabScript = `
-(function(){
-  var API='https://status.betgevergiz.com/api/status';
-  var lastTs=null;
-  var allContainers=[];
-  var showingAll=false;
-  function timeAgo(ts){var s=Math.floor((Date.now()-ts*1000)/1000);if(s<10)return'just now';if(s<60)return s+'s ago';if(s<3600)return Math.floor(s/60)+'m ago';return Math.floor(s/3600)+'h ago';}
-  function renderContainers(list,all){
-    var el=document.getElementById('hl-container-list');
-    var moreEl=document.getElementById('hl-show-more');
-    var moreCount=document.getElementById('hl-more-count');
-    if(!el)return;
-    var visible=all?list:list.slice(0,8);
-    el.innerHTML=visible.map(function(c){
-      var dot=c.running?'<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#10b981;margin-right:8px;flex-shrink:0"></span>':'<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:rgba(239,68,68,0.6);margin-right:8px;flex-shrink:0"></span>';
-      var status=c.running?'<span style="color:#34d399">running</span>':'<span style="color:rgba(248,113,113,0.7)">stopped</span>';
-      return '<div style="display:flex;align-items:center;font-size:12px;padding:2px 0">'+dot+'<span style="color:#cbd5e1;font-family:monospace;width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+c.name+'</span><span style="color:#475569;margin-left:8px">'+status+'</span></div>';
-    }).join('');
-    if(!all&&list.length>8){if(moreCount)moreCount.textContent=list.length-8;if(moreEl)moreEl.classList.remove('hidden');}
-    else{if(moreEl)moreEl.classList.add('hidden');}
-  }
-  function update(data){
-    var loading=document.getElementById('homelab-loading');
-    var content=document.getElementById('homelab-content');
-    var error=document.getElementById('homelab-error');
-    if(loading)loading.style.display='none';
-    if(error)error.classList.add('hidden');
-    if(content)content.classList.remove('hidden');
-    var total=document.getElementById('hl-total');
-    var running=document.getElementById('hl-running');
-    var load=document.getElementById('hl-load');
-    var ram=document.getElementById('hl-ram');
-    var updated=document.getElementById('hl-updated');
-    if(total)total.textContent=data.containers.total;
-    if(running)running.textContent=data.containers.running;
-    if(load)load.textContent=data.host.load['5min'].toFixed(2);
-    if(ram)ram.textContent=Math.round(data.host.memory.percent)+'%';
-    lastTs=data.timestamp;
-    if(updated)updated.textContent='Updated '+timeAgo(lastTs);
-    allContainers=data.containers.list||[];
-    renderContainers(allContainers,showingAll);
-  }
-  function showError(){
-    var loading=document.getElementById('homelab-loading');
-    var content=document.getElementById('homelab-content');
-    var error=document.getElementById('homelab-error');
-    if(loading)loading.style.display='none';
-    if(content&&content.classList.contains('hidden')){if(error)error.classList.remove('hidden');}
-  }
-  function fetchStatus(){fetch(API).then(function(r){return r.json();}).then(function(d){if(d.ok)update(d);else showError();}).catch(showError);}
-  document.addEventListener('DOMContentLoaded',function(){
-    var btn=document.getElementById('hl-show-more-btn');
-    if(btn)btn.addEventListener('click',function(){showingAll=true;renderContainers(allContainers,true);});
-    fetchStatus();
-    setInterval(fetchStatus,30000);
-    setInterval(function(){if(lastTs){var el=document.getElementById('hl-updated');if(el)el.textContent='Updated '+timeAgo(lastTs);}},5000);
-  });
-})();
-`;
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#0d1117] text-slate-100 flex">
@@ -162,58 +102,24 @@ export default function Home() {
               View Architecture →
             </a>
           </div>
-          <div id="homelab-widget" className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-6">
-            <div id="homelab-loading" className="flex items-center gap-3 py-4">
-              <div className="w-2 h-2 rounded-full bg-slate-500 animate-pulse"></div>
-              <span className="text-slate-400 text-sm">Connecting to homelab...</span>
-            </div>
-            <div id="homelab-content" className="hidden">
-              <div className="flex items-center justify-between mb-5">
-                <div className="flex items-center gap-2">
-                  <span id="hl-status-dot" className="text-base">🟢</span>
-                  <span className="text-white font-semibold text-sm">Homelab — Live</span>
-                </div>
-                <span id="hl-updated" className="text-xs text-slate-500">Updated just now</span>
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-5">
-                <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-lg p-3 text-center">
-                  <div id="hl-total" className="text-2xl font-bold text-slate-100 tabular-nums">—</div>
-                  <div className="text-xs text-slate-500 uppercase tracking-wider mt-0.5">Total Containers</div>
-                </div>
-                <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-lg p-3 text-center">
-                  <div id="hl-running" className="text-2xl font-bold text-emerald-400 tabular-nums">—</div>
-                  <div className="text-xs text-slate-500 uppercase tracking-wider mt-0.5">Running</div>
-                </div>
-                <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-lg p-3 text-center">
-                  <div id="hl-load" className="text-2xl font-bold text-slate-100 tabular-nums">—</div>
-                  <div className="text-xs text-slate-500 uppercase tracking-wider mt-0.5">Load (5min)</div>
-                </div>
-                <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-lg p-3 text-center">
-                  <div id="hl-ram" className="text-2xl font-bold text-slate-100 tabular-nums">—</div>
-                  <div className="text-xs text-slate-500 uppercase tracking-wider mt-0.5">RAM Used</div>
-                </div>
-              </div>
-              <div id="hl-container-list" className="space-y-1.5"></div>
-              <div id="hl-show-more" className="hidden mt-2">
-                <button
-                  id="hl-show-more-btn"
-                  className="text-xs text-slate-500 hover:text-slate-300 transition-colors cursor-pointer bg-transparent border-0 p-0"
-                >
-                  + <span id="hl-more-count"></span> more — show all
-                </button>
-              </div>
-            </div>
-            <div id="homelab-error" className="hidden">
-              <div className="flex items-center gap-3 py-4">
-                <div className="w-2 h-2 rounded-full bg-red-500/60"></div>
-                <span className="text-slate-500 text-sm">Status unavailable — homelab may be offline</span>
-              </div>
+          <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl overflow-hidden">
+            <iframe
+              src="https://monitor.betgevergiz.com/d/2291b076-6042-499d-bca1-724ac0a21850/proxmox-homelab?orgId=1&refresh=30s&theme=dark&kiosk"
+              width="100%"
+              height="400"
+              frameBorder="0"
+              title="Homelab Live Metrics"
+              className="w-full"
+            />
+            <div className="px-4 py-2 flex items-center justify-between border-t border-white/10">
+              <span className="text-xs text-slate-500">Live data · refreshes every 30s</span>
+              <a href="https://monitor.betgevergiz.com" target="_blank" rel="noopener noreferrer"
+                 className="text-xs text-slate-500 hover:text-slate-300 transition-colors">
+                Open in Grafana →
+              </a>
             </div>
           </div>
         </section>
-
-        {/* Homelab script */}
-        <script dangerouslySetInnerHTML={{ __html: homelabScript }} />
 
         {/* Projects */}
         <section id="projects" className="py-20 px-8 max-w-5xl mx-auto">

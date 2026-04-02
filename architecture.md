@@ -188,7 +188,7 @@ This is a local-only backup strategy. Off-site backup (e.g., rclone to Backblaze
 ### Issue Detection and Resolution
 
 - CT 132 (`status-api`) polls all containers via the Proxmox API and exposes live metrics (container count, running state, CPU load, RAM utilization) at `https://status.betgevergiz.com/api/status`
-- The portfolio site's Live Infrastructure widget polls this API every 30 seconds for real-time visibility
+- The portfolio site's Live Infrastructure section embeds the Grafana dashboard at `monitor.betgevergiz.com` directly via iframe — displaying live metrics with a 30-second auto-refresh
 - CT 131 (`dealhawk`) uses Telegram for alerts — the same Telegram bot infrastructure could be extended to send homelab alerts
 - Issues are currently detected reactively (service stops responding) or via the status API. No active alerting on container state changes yet — that's a gap to close
 
@@ -213,9 +213,9 @@ Grafana (CT 133) is backed by Prometheus, which scrapes a `/metrics` endpoint on
 - Per-container running state (labeled by ID and name)
 - Total and running container counts
 
-The raw JSON API remains available at `https://status.betgevergiz.com/api/status` and continues to feed the portfolio's Live Infrastructure widget.
+The portfolio site embeds this Grafana dashboard directly via iframe — visitors see live Proxmox metrics without leaving the page. The raw JSON API remains available at `https://status.betgevergiz.com/api/status` for programmatic access.
 
-CT 132 (`status-api`) exposes both `/api/status` (JSON, for the portfolio widget) and `/metrics` (Prometheus text format, for Grafana).
+CT 132 (`status-api`) exposes both `/api/status` (JSON, for direct API access) and `/metrics` (Prometheus text format, scraped by Grafana).
 
 ---
 
