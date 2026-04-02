@@ -6,31 +6,7 @@ export default function MotionEffects() {
     const heroName = document.querySelector('[data-hero-name]') as HTMLElement | null;
     let rafId: number;
 
-    if (heroName) {
-      const STIFFNESS = 0.10;
-      const DAMPING = 0.72;
-      const PARALLAX_FACTOR = 0.28;
-      const MAX_OFFSET = 28;
-      let currentY = 0, targetY = 0, velocity = 0;
-      heroName.style.willChange = 'transform';
-
-      const onScroll = () => {
-        targetY = Math.min(window.scrollY * PARALLAX_FACTOR, MAX_OFFSET);
-      };
-
-      const springLoop = () => {
-        const delta = targetY - currentY;
-        velocity = (velocity + delta * STIFFNESS) * DAMPING;
-        currentY += velocity;
-        if (Math.abs(velocity) > 0.005 || Math.abs(delta) > 0.005) {
-          heroName.style.transform = `translateY(${currentY.toFixed(3)}px)`;
-        }
-        rafId = requestAnimationFrame(springLoop);
-      };
-
-      window.addEventListener('scroll', onScroll, { passive: true });
-      rafId = requestAnimationFrame(springLoop);
-    }
+    // Hero name spring parallax removed — caused sticky/janky behavior on scroll
 
     const cards = document.querySelectorAll<HTMLElement>('[data-card]');
     cards.forEach(card => {
