@@ -1,6 +1,7 @@
 "use client";
 
 import { Github, Linkedin, ExternalLink, Mail } from "lucide-react";
+import MotionEffects from "@/components/MotionEffects";
 
 export default function Home() {
   return (
@@ -9,17 +10,20 @@ export default function Home() {
       <aside className="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-64 border-r border-white/10 bg-[#0d1117]/95 backdrop-blur-sm p-6 z-50">
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-1">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" style={{animationDuration: '2.4s'}}></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
             <span className="text-xs text-slate-400">Available for work</span>
           </div>
           <h1 className="text-lg font-bold text-white leading-tight">Jason Betgevergiz</h1>
           <p className="text-sm text-slate-400 mt-1">Infrastructure &amp; Systems Engineer</p>
         </div>
         <nav className="flex flex-col gap-2 flex-1">
-          <a href="#about" className="text-sm text-slate-400 hover:text-white transition-colors py-1.5 px-2 rounded-md hover:bg-white/5">About</a>
-          <a href="#infrastructure" className="text-sm text-slate-400 hover:text-white transition-colors py-1.5 px-2 rounded-md hover:bg-white/5">Live Infrastructure</a>
-          <a href="#projects" className="text-sm text-slate-400 hover:text-white transition-colors py-1.5 px-2 rounded-md hover:bg-white/5">Projects</a>
-          <a href="#skills" className="text-sm text-slate-400 hover:text-white transition-colors py-1.5 px-2 rounded-md hover:bg-white/5">Skills</a>
+          <a href="#about" className="nav-link text-sm text-slate-400 hover:text-white transition-colors py-1.5 px-2 rounded-md hover:bg-white/5">About</a>
+          <a href="#infrastructure" className="nav-link text-sm text-slate-400 hover:text-white transition-colors py-1.5 px-2 rounded-md hover:bg-white/5">Live Infrastructure</a>
+          <a href="#projects" className="nav-link text-sm text-slate-400 hover:text-white transition-colors py-1.5 px-2 rounded-md hover:bg-white/5">Projects</a>
+          <a href="#skills" className="nav-link text-sm text-slate-400 hover:text-white transition-colors py-1.5 px-2 rounded-md hover:bg-white/5">Skills</a>
         </nav>
         <div className="flex gap-3 mt-4">
           <a href="https://github.com/jbetgevergiz" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">
@@ -36,11 +40,18 @@ export default function Home() {
       <main className="lg:ml-64 flex-1">
         {/* Hero */}
         <section className="mesh-bg min-h-screen flex flex-col justify-center px-8 py-20 max-w-5xl mx-auto">
-          <h1 className="text-5xl sm:text-6xl font-bold text-white mb-4 tracking-tight">Jason Betgevergiz</h1>
-          <p className="text-xl text-slate-300 mb-4 font-medium">Infrastructure &amp; Systems Engineer</p>
-          <p className="text-slate-400 text-base mb-10 max-w-xl leading-relaxed">
-            5 years selling to engineering leaders. Now building the infrastructure I used to demo. Proxmox, Kubernetes, cloud security — self-taught, production-deployed.
+          <h1 data-hero-name style={{ fontFamily: 'var(--font-space-grotesk)' }} className="text-7xl sm:text-8xl font-extrabold text-[#f0f0f0] mb-3 tracking-tight leading-none">
+            Jason Betgevergiz
+          </h1>
+          <p className="text-sm text-slate-400 mb-2 font-light tracking-[0.08em] uppercase">
+            Infrastructure &amp; Systems Engineer
+            <span className="inline-block w-0.5 h-4 bg-emerald-500 ml-1 animate-pulse align-middle" />
           </p>
+          <blockquote className="border-l-2 border-emerald-500/60 pl-4 mb-8 max-w-lg">
+            <p className="text-slate-200 text-base font-medium leading-snug">
+              &ldquo;5 years selling to engineering leaders.<br />Now building the infrastructure I used to demo.&rdquo;
+            </p>
+          </blockquote>
           <div className="flex gap-4 flex-wrap">
             <a href="#about" className="px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium rounded-lg transition-all duration-200">
               Read My Story
@@ -136,7 +147,13 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-3 gap-4 mb-12">
             {/* Proxmox Homelab */}
-            <div className="col-span-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
+            <div data-card className="col-span-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
+              <div className="flex items-center gap-1.5 mb-3 pb-3 border-b border-white/10">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70"></span>
+                <span className="ml-2 text-xs text-slate-600 font-mono">~/projects/proxmox-homelab</span>
+              </div>
               <div className="flex items-start justify-between gap-2">
                 <h3 className="text-white font-semibold text-base leading-snug">Proxmox Homelab</h3>
                 <span className="shrink-0 text-xs px-2 py-0.5 rounded-full border font-medium bg-emerald-900/60 text-emerald-400 border-emerald-800">Live</span>
@@ -163,7 +180,13 @@ export default function Home() {
             </div>
 
             {/* Media Stack */}
-            <div className="col-span-1 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
+            <div data-card className="col-span-1 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
+              <div className="flex items-center gap-1.5 mb-3 pb-3 border-b border-white/10">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70"></span>
+                <span className="ml-2 text-xs text-slate-600 font-mono">~/projects/media-stack</span>
+              </div>
               <div className="flex items-start justify-between gap-2">
                 <h3 className="text-white font-semibold text-base leading-snug">Self-Hosted Media Stack</h3>
                 <span className="shrink-0 text-xs px-2 py-0.5 rounded-full border font-medium bg-emerald-900/60 text-emerald-400 border-emerald-800">Live</span>
@@ -190,7 +213,13 @@ export default function Home() {
             </div>
 
             {/* DealHawk */}
-            <div className="col-span-3 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
+            <div data-card className="col-span-3 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
+              <div className="flex items-center gap-1.5 mb-3 pb-3 border-b border-white/10">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70"></span>
+                <span className="ml-2 text-xs text-slate-600 font-mono">~/projects/dealhawk</span>
+              </div>
               <div className="flex items-start justify-between gap-2">
                 <h3 className="text-white font-semibold text-base leading-snug">DealHawk — Price Monitor &amp; Alert System</h3>
                 <span className="shrink-0 text-xs px-2 py-0.5 rounded-full border font-medium bg-emerald-900/60 text-emerald-400 border-emerald-800">Live</span>
@@ -229,7 +258,13 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-3 gap-4">
             {/* Kubernetes */}
-            <div className="col-span-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
+            <div data-card className="col-span-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
+              <div className="flex items-center gap-1.5 mb-3 pb-3 border-b border-white/10">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70"></span>
+                <span className="ml-2 text-xs text-slate-600 font-mono">~/projects/k8s-cluster</span>
+              </div>
               <div className="flex items-start justify-between gap-2">
                 <h3 className="text-white font-semibold text-base leading-snug">Kubernetes Cluster</h3>
                 <span className="shrink-0 text-xs px-2 py-0.5 rounded-full border font-medium bg-amber-900/60 text-amber-400 border-amber-800">In Progress</span>
@@ -256,7 +291,13 @@ export default function Home() {
             </div>
 
             {/* Cloud Security */}
-            <div className="col-span-1 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
+            <div data-card className="col-span-1 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
+              <div className="flex items-center gap-1.5 mb-3 pb-3 border-b border-white/10">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70"></span>
+                <span className="ml-2 text-xs text-slate-600 font-mono">~/projects/cloud-security</span>
+              </div>
               <div className="flex items-start justify-between gap-2">
                 <h3 className="text-white font-semibold text-base leading-snug">Cloud Security Homelab</h3>
                 <span className="shrink-0 text-xs px-2 py-0.5 rounded-full border font-medium bg-amber-900/60 text-amber-400 border-amber-800">In Progress</span>
@@ -283,7 +324,13 @@ export default function Home() {
             </div>
 
             {/* Wiz CSPM */}
-            <div className="col-span-1 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
+            <div data-card className="col-span-1 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
+              <div className="flex items-center gap-1.5 mb-3 pb-3 border-b border-white/10">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70"></span>
+                <span className="ml-2 text-xs text-slate-600 font-mono">~/projects/wiz-cspm</span>
+              </div>
               <div className="flex items-start justify-between gap-2">
                 <h3 className="text-white font-semibold text-base leading-snug">Wiz CSPM Integration</h3>
                 <span className="shrink-0 text-xs px-2 py-0.5 rounded-full border font-medium bg-amber-900/60 text-amber-400 border-amber-800">In Progress</span>
@@ -310,7 +357,13 @@ export default function Home() {
             </div>
 
             {/* Terraform */}
-            <div className="col-span-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
+            <div data-card className="col-span-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
+              <div className="flex items-center gap-1.5 mb-3 pb-3 border-b border-white/10">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70"></span>
+                <span className="ml-2 text-xs text-slate-600 font-mono">~/projects/terraform-modules</span>
+              </div>
               <div className="flex items-start justify-between gap-2">
                 <h3 className="text-white font-semibold text-base leading-snug">Terraform Security Modules</h3>
                 <span className="shrink-0 text-xs px-2 py-0.5 rounded-full border font-medium bg-amber-900/60 text-amber-400 border-amber-800">In Progress</span>
@@ -344,22 +397,30 @@ export default function Home() {
             <div className="w-1 h-7 rounded-full bg-slate-600"></div>
             <h2 className="text-3xl font-bold text-white tracking-tight">Skills</h2>
           </div>
-          <div className="space-y-6">
+          <div className="font-mono text-xs">
+            <div className="grid grid-cols-3 gap-4 mb-3 pb-2 border-b border-white/10 text-slate-500 uppercase tracking-wider text-[10px]">
+              <span>Skill</span>
+              <span>Proficiency</span>
+              <span>Status</span>
+            </div>
             {[
-              { label: "Infrastructure", items: ["Proxmox VE", "LXC Containers", "Linux (Debian/Ubuntu)", "VMware/Hyper-V"] },
-              { label: "Containers & Orchestration", items: ["Docker & Compose", "Kubernetes / k3s", "Container Networking", "CI/CD"] },
-              { label: "Networking & Security", items: ["VLANs & DNS", "Cloudflare Tunnels", "VPN Routing", "AWS IAM / GuardDuty"] },
-              { label: "Languages & Tools", items: ["Python", "Bash", "Terraform (HCL)", "SQLite"] },
-            ].map((group) => (
-              <div key={group.label}>
-                <p className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-2">{group.label}</p>
-                <div className="flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <span key={item} className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-sm text-slate-300 hover:text-white hover:bg-white/10 transition-all duration-200">
-                      {item}
-                    </span>
-                  ))}
-                </div>
+              { name: 'Proxmox VE', level: 8, status: 'PROD', color: 'emerald' },
+              { name: 'Linux (Debian/Ubuntu)', level: 8, status: 'DAILY', color: 'emerald' },
+              { name: 'Docker & Compose', level: 8, status: 'PROD', color: 'emerald' },
+              { name: 'Cloudflare Tunnels', level: 9, status: 'PROD', color: 'emerald' },
+              { name: 'LXC Containers', level: 7, status: 'PROD', color: 'emerald' },
+              { name: 'Python / Bash', level: 7, status: 'DAILY', color: 'emerald' },
+              { name: 'Networking (DNS/VPN)', level: 7, status: 'PROD', color: 'emerald' },
+              { name: 'Kubernetes / k3s', level: 5, status: 'LEARNING', color: 'amber' },
+              { name: 'Terraform (HCL)', level: 4, status: 'LEARNING', color: 'amber' },
+              { name: 'AWS / Cloud Security', level: 4, status: 'LEARNING', color: 'amber' },
+              { name: 'CI/CD Pipelines', level: 4, status: 'LEARNING', color: 'amber' },
+              { name: 'SQLite', level: 6, status: 'PROD', color: 'emerald' },
+            ].map((skill) => (
+              <div key={skill.name} className="grid grid-cols-3 gap-4 py-1.5 border-b border-white/5 hover:bg-white/5 px-2 -mx-2 rounded transition-colors">
+                <span className="text-slate-300">{skill.name}</span>
+                <span className="text-slate-500">{'█'.repeat(skill.level)}{'░'.repeat(10 - skill.level)}</span>
+                <span className={skill.color === 'emerald' ? 'text-emerald-400' : 'text-amber-400'}>{skill.status}</span>
               </div>
             ))}
           </div>
@@ -402,6 +463,7 @@ export default function Home() {
           <p className="text-slate-600 text-sm">Miami, FL · © 2026 Jason Betgevergiz</p>
         </footer>
       </main>
+      <MotionEffects />
     </div>
   );
 }

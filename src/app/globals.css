@@ -59,3 +59,22 @@ body {
   background: #334155;
   border-radius: 2px;
 }
+
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: var(--underline-origin, 50%);
+  width: 0%;
+  height: 1px;
+  background: rgba(255,255,255,0.4);
+  transform: translateX(-50%);
+  transition: width 0.25s cubic-bezier(0.25, 1, 0.5, 1), left 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.nav-link:hover::after {
+  width: 100%;
+  left: 50%;
+}
