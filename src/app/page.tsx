@@ -1,9 +1,32 @@
 "use client";
 
 import { Github, Linkedin, ExternalLink, Mail } from "lucide-react";
+import { useState } from "react";
 import MotionEffects from "@/components/MotionEffects";
+import ConsoleMessage from "@/components/ConsoleMessage";
+import EasterEgg from "@/components/EasterEgg";
+import ScrollProgress from "@/components/ScrollProgress";
+
+function getGreeting() {
+  const hour = new Date().getHours();
+  if (hour >= 5 && hour < 12) return { text: 'Good morning.', note: '// Brewed a coffee, opened the terminal.' };
+  if (hour >= 12 && hour < 17) return { text: 'Good afternoon.', note: '// Containers are running. As expected.' };
+  if (hour >= 17 && hour < 21) return { text: 'Good evening.', note: '// Post-work homelab hours.' };
+  return { text: 'Still at it?', note: '// Respect. The homelab never sleeps.' };
+}
 
 export default function Home() {
+  const [copied, setCopied] = useState(false);
+  const greeting = getGreeting();
+
+  const handleEmailCopy = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigator.clipboard.writeText('jbetgevergiz@gmail.com').then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    });
+  };
+
   return (
     <div className="min-h-screen bg-[#0d1117] text-slate-100 flex">
       {/* Sidebar */}
@@ -40,6 +63,10 @@ export default function Home() {
       <main className="lg:ml-64 flex-1">
         {/* Hero */}
         <section className="mesh-bg min-h-screen flex flex-col justify-center px-8 py-20 max-w-5xl mx-auto">
+          <div className="mb-4">
+            <span className="font-mono text-xs text-emerald-500/70">{greeting.text}</span>
+            <span className="font-mono text-xs text-slate-600 ml-3">{greeting.note}</span>
+          </div>
           <h1 data-hero-name style={{ fontFamily: 'var(--font-space-grotesk)' }} className="text-7xl sm:text-8xl font-extrabold text-[#f0f0f0] mb-3 tracking-tight leading-none">
             Jason Betgevergiz
           </h1>
@@ -432,12 +459,12 @@ export default function Home() {
           <p className="text-slate-400 text-base leading-relaxed mb-6 max-w-xl mx-auto">
             I&apos;m actively looking for IT support, sysadmin, or junior infrastructure roles — remote or Miami-based. If you want someone who can communicate at both levels and keeps building on their own time, let&apos;s talk.
           </p>
-          <a
-            href="mailto:jbetgevergiz@gmail.com"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium rounded-lg transition-all duration-200"
+          <button
+            onClick={handleEmailCopy}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium rounded-lg transition-all duration-200 cursor-pointer"
           >
-            <Mail className="w-4 h-4" /> jbetgevergiz@gmail.com
-          </a>
+            <Mail className="w-4 h-4" /> {copied ? 'jbetgevergiz@gmail.com copied ✓' : 'jbetgevergiz@gmail.com'}
+          </button>
           <div className="mt-4">
             <a
               href="https://linkedin.com/in/jason-betgevergiz"
@@ -464,6 +491,14 @@ export default function Home() {
         </footer>
       </main>
       <MotionEffects />
+      <ConsoleMessage />
+      <EasterEgg />
+      <ScrollProgress />
+      {copied && (
+        <div className="fixed bottom-6 right-6 z-50 bg-[#0d1117] border border-emerald-500/40 text-emerald-400 font-mono text-xs px-4 py-2 rounded-lg shadow-lg animate-fade-in">
+          $ echo &quot;jbetgevergiz@gmail.com&quot; | pbcopy ✓
+        </div>
+      )}
     </div>
   );
 }
