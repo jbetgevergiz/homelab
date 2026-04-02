@@ -18,9 +18,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Jason Betgevergiz — Infrastructure & Systems Engineer",
+  title: "Jason Betgevergiz — Junior Infrastructure Engineer",
   description:
-    "Portfolio of Jason Betgevergiz — infrastructure engineer building production homelab systems, cloud security, and automation tools.",
+    "Portfolio of Jason Betgevergiz — junior infrastructure engineer building production homelab systems, cloud security, and automation tools.",
 };
 
 export default function RootLayout({
