@@ -20,8 +20,8 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0d1117] text-slate-100 flex">
-      {/* Sidebar */}
+    <div className="min-h-screen bg-[#0d1117] text-slate-100 flex overflow-x-hidden">
+      {/* Sidebar — desktop only */}
       <aside className="hidden lg:flex flex-col fixed left-0 top-0 h-screen w-64 border-r border-white/10 bg-[#0d1117]/95 backdrop-blur-sm p-6 z-50">
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-1">
@@ -52,12 +52,32 @@ export default function Home() {
       </aside>
 
       {/* Main */}
-      <main className="lg:ml-64 flex-1">
+      <main className="lg:ml-64 flex-1 min-w-0">
+
+        {/* Mobile top nav — hidden on lg+ */}
+        <header className="lg:hidden sticky top-0 z-50 bg-[#0d1117]/95 backdrop-blur-sm border-b border-white/10">
+          <div className="flex items-center justify-between px-4 py-3">
+            <div className="flex items-center gap-2 min-w-0">
+              <span className="relative flex h-2 w-2 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" style={{animationDuration: '2.4s'}}></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span className="text-sm font-bold text-white truncate">Jason Betgevergiz</span>
+            </div>
+            <nav className="flex items-center gap-3 shrink-0 ml-3">
+              <a href="#about" className="text-xs text-slate-400 hover:text-white transition-colors">About</a>
+              <a href="#projects" className="text-xs text-slate-400 hover:text-white transition-colors">Projects</a>
+              <a href="#skills" className="text-xs text-slate-400 hover:text-white transition-colors">Skills</a>
+              <a href="#infrastructure" className="text-xs text-slate-400 hover:text-white transition-colors">Infra</a>
+            </nav>
+          </div>
+        </header>
+
         {/* Hero */}
         <section className="mesh-bg min-h-screen flex flex-col justify-center relative">
-          <div className="px-6 py-20 max-w-7xl mx-auto w-full">
+          <div className="px-4 sm:px-6 py-14 sm:py-20 max-w-7xl mx-auto w-full">
             <DynamicStatus />
-            <h1 data-hero-name style={{ fontFamily: 'var(--font-space-grotesk)' }} className="text-7xl sm:text-8xl font-extrabold text-[#f0f0f0] mb-3 tracking-tight leading-none mt-4">
+            <h1 data-hero-name style={{ fontFamily: 'var(--font-space-grotesk)' }} className="text-3xl sm:text-5xl lg:text-7xl xl:text-8xl font-extrabold text-[#f0f0f0] mb-3 tracking-tight leading-tight mt-4">
               Jason Betgevergiz
             </h1>
             <p className="text-sm text-slate-400 mb-2 font-light tracking-[0.08em] uppercase">
@@ -65,7 +85,7 @@ export default function Home() {
               <span className="inline-block w-0.5 h-4 bg-emerald-500 ml-1 animate-pulse align-middle" />
             </p>
             <blockquote className="border-l-2 border-emerald-500/60 pl-4 mb-6 max-w-lg">
-              <p className="text-slate-200 text-base font-medium leading-snug">
+              <p className="text-slate-200 text-sm sm:text-base font-medium leading-snug">
                 &ldquo;5 years selling to engineering leaders.<br />Now building the infrastructure I used to demo.&rdquo;
               </p>
             </blockquote>
@@ -74,15 +94,15 @@ export default function Home() {
                 <span className="text-white font-semibold">TL;DR:</span> 5 years in enterprise tech sales → self-taught infrastructure engineer. Running a production homelab with 10+ containers, a k3s cluster on Raspberry Pis, and more. Providing <span className="text-white">L1/L2 IT support at Moderne</span> — ~90% ticket resolution without escalation for 12 users across Salesforce, Salesloft, Zoominfo, and Nooks. Currently pursuing <span className="text-white">CompTIA Network+</span>.
               </p>
             </div>
-            <div className="flex gap-4 flex-wrap">
-              <a href="#about" className="px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium rounded-lg transition-all duration-200">
+            <div className="flex gap-3 sm:gap-4 flex-wrap">
+              <a href="#about" className="px-5 py-2.5 sm:px-6 sm:py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium rounded-lg transition-all duration-200 text-sm sm:text-base">
                 Read My Story
               </a>
               <a
                 href="https://github.com/jbetgevergiz"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-transparent hover:bg-white/5 border border-white/10 text-slate-300 hover:text-white font-medium rounded-lg transition-all duration-200"
+                className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 bg-transparent hover:bg-white/5 border border-white/10 text-slate-300 hover:text-white font-medium rounded-lg transition-all duration-200 text-sm sm:text-base"
               >
                 <Github className="w-4 h-4" /> GitHub
               </a>
@@ -91,7 +111,7 @@ export default function Home() {
         </section>
 
         {/* Projects */}
-        <section id="projects" className="py-20 px-6 max-w-7xl mx-auto">
+        <section id="projects" className="py-14 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
           <div className="flex items-baseline gap-3 mb-8">
             <div className="w-1 h-7 rounded-full bg-slate-600"></div>
             <h2 className="text-3xl font-bold text-white tracking-tight">Projects</h2>
@@ -103,14 +123,14 @@ export default function Home() {
             <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
             <h3 className="text-lg font-semibold text-white">Production</h3>
           </div>
-          <div className="grid grid-cols-3 gap-4 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
             {/* Proxmox Homelab */}
-            <div data-card className="col-span-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
+            <div data-card className="col-span-1 md:col-span-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
               <div className="flex items-center gap-1.5 mb-3 pb-3 border-b border-white/10">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
                 <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70"></span>
-                <span className="ml-2 text-xs text-slate-600 font-mono">~/projects/proxmox-homelab</span>
+                <span className="ml-2 text-xs text-slate-600 font-mono truncate">~/projects/proxmox-homelab</span>
               </div>
               <div className="flex items-start justify-between gap-2">
                 <h3 className="text-white font-semibold text-base leading-snug">Proxmox Homelab</h3>
@@ -143,7 +163,7 @@ export default function Home() {
                 <span className="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
                 <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70"></span>
-                <span className="ml-2 text-xs text-slate-600 font-mono">~/projects/media-stack</span>
+                <span className="ml-2 text-xs text-slate-600 font-mono truncate">~/projects/media-stack</span>
               </div>
               <div className="flex items-start justify-between gap-2">
                 <h3 className="text-white font-semibold text-base leading-snug">Self-Hosted Media Stack</h3>
@@ -171,12 +191,12 @@ export default function Home() {
             </div>
 
             {/* DealHawk */}
-            <div data-card className="col-span-3 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
+            <div data-card className="col-span-1 md:col-span-3 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
               <div className="flex items-center gap-1.5 mb-3 pb-3 border-b border-white/10">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
                 <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70"></span>
-                <span className="ml-2 text-xs text-slate-600 font-mono">~/projects/dealhawk</span>
+                <span className="ml-2 text-xs text-slate-600 font-mono truncate">~/projects/dealhawk</span>
               </div>
               <div className="flex items-start justify-between gap-2">
                 <h3 className="text-white font-semibold text-base leading-snug">DealHawk — Price Monitor &amp; Alert System</h3>
@@ -204,14 +224,14 @@ export default function Home() {
             </div>
           </div>
 
-          {/* DealHawk Production Notes - surfaced from README */}
+          {/* DealHawk Production Notes */}
           <div className="mb-12 border border-amber-500/20 rounded-xl bg-amber-950/10 overflow-hidden">
-            <div className="flex items-center gap-2 px-5 py-3 border-b border-amber-500/20 bg-amber-900/10">
-              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+            <div className="flex items-center gap-2 px-5 py-3 border-b border-amber-500/20 bg-amber-900/10 flex-wrap gap-y-1">
+              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse shrink-0"></span>
               <span className="font-mono text-xs text-amber-400">dealhawk — production notes</span>
-              <span className="ml-auto font-mono text-[10px] text-amber-600">// these are failure modes I actually hit</span>
+              <span className="ml-auto font-mono text-[10px] text-amber-600 hidden sm:block">// these are failure modes I actually hit</span>
             </div>
-            <div className="grid grid-cols-3 gap-0 divide-x divide-amber-500/10">
+            <div className="grid grid-cols-1 md:grid-cols-3 divide-y divide-amber-500/10 md:divide-y-0 md:divide-x md:divide-amber-500/10">
               <div className="p-4">
                 <p className="font-mono text-[10px] text-amber-500 mb-2 uppercase tracking-wider">Incident #1</p>
                 <p className="font-mono text-xs text-amber-300 mb-1">Amazon TLS fingerprint block</p>
@@ -240,14 +260,14 @@ export default function Home() {
             <span className="px-2.5 py-1 rounded-full text-xs bg-slate-800 text-slate-400 border border-slate-700">Next: Security+</span>
             <span className="px-2.5 py-1 rounded-full text-xs bg-slate-800 text-slate-400 border border-slate-700">Target: AWS Security Specialty</span>
           </div>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Kubernetes */}
-            <div data-card className="col-span-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
+            <div data-card className="col-span-1 md:col-span-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
               <div className="flex items-center gap-1.5 mb-3 pb-3 border-b border-white/10">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
                 <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70"></span>
-                <span className="ml-2 text-xs text-slate-600 font-mono">~/projects/k8s-cluster</span>
+                <span className="ml-2 text-xs text-slate-600 font-mono truncate">~/projects/k8s-cluster</span>
               </div>
               <div className="flex items-start justify-between gap-2">
                 <h3 className="text-white font-semibold text-base leading-snug">Kubernetes Cluster</h3>
@@ -280,7 +300,7 @@ export default function Home() {
                 <span className="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
                 <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70"></span>
-                <span className="ml-2 text-xs text-slate-600 font-mono">~/projects/cloud-security</span>
+                <span className="ml-2 text-xs text-slate-600 font-mono truncate">~/projects/cloud-security</span>
               </div>
               <div className="flex items-start justify-between gap-2">
                 <h3 className="text-white font-semibold text-base leading-snug">Cloud Security Homelab</h3>
@@ -313,7 +333,7 @@ export default function Home() {
                 <span className="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
                 <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70"></span>
-                <span className="ml-2 text-xs text-slate-600 font-mono">~/projects/wiz-cspm</span>
+                <span className="ml-2 text-xs text-slate-600 font-mono truncate">~/projects/wiz-cspm</span>
               </div>
               <div className="flex items-start justify-between gap-2">
                 <h3 className="text-white font-semibold text-base leading-snug">Wiz CSPM Integration</h3>
@@ -341,12 +361,12 @@ export default function Home() {
             </div>
 
             {/* Terraform */}
-            <div data-card className="col-span-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
+            <div data-card className="col-span-1 md:col-span-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-5 min-h-[200px] hover:border-white/20 hover:bg-white/[0.08] hover:scale-[1.02] transition-all duration-300 flex flex-col gap-3">
               <div className="flex items-center gap-1.5 mb-3 pb-3 border-b border-white/10">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
                 <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70"></span>
-                <span className="ml-2 text-xs text-slate-600 font-mono">~/projects/terraform-modules</span>
+                <span className="ml-2 text-xs text-slate-600 font-mono truncate">~/projects/terraform-modules</span>
               </div>
               <div className="flex items-start justify-between gap-2">
                 <h3 className="text-white font-semibold text-base leading-snug">Terraform Security Modules</h3>
@@ -376,7 +396,7 @@ export default function Home() {
         </section>
 
         {/* About */}
-        <section id="about" className="py-20 px-6 max-w-7xl mx-auto">
+        <section id="about" className="py-14 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
           <div className="flex items-baseline gap-3 mb-8">
             <div className="w-1 h-7 rounded-full bg-slate-600"></div>
             <h2 className="text-3xl font-bold text-white tracking-tight">About</h2>
@@ -398,8 +418,8 @@ export default function Home() {
         </section>
 
         {/* Live Infrastructure */}
-        <section id="infrastructure" className="py-8 px-6 max-w-7xl mx-auto">
-          <div className="flex items-baseline justify-between gap-3 mb-6">
+        <section id="infrastructure" className="py-8 px-4 sm:px-6 max-w-7xl mx-auto">
+          <div className="flex items-baseline justify-between gap-3 mb-6 flex-wrap gap-y-2">
             <div className="flex items-baseline gap-3">
               <div className="w-1 h-7 rounded-full bg-slate-600"></div>
               <h2 className="text-2xl font-bold text-white tracking-tight">Live Infrastructure</h2>
@@ -417,12 +437,11 @@ export default function Home() {
             <iframe
               src="https://monitor.betgevergiz.com/d/2291b076-6042-499d-bca1-724ac0a21850/proxmox-homelab?orgId=1&refresh=30s&theme=dark&kiosk"
               width="100%"
-              height="400"
               frameBorder="0"
               title="Homelab Live Metrics"
-              className="w-full"
+              className="w-full h-[250px] md:h-[400px]"
             />
-            <div className="px-4 py-2 flex items-center justify-between border-t border-white/10">
+            <div className="px-4 py-2 flex items-center justify-between border-t border-white/10 flex-wrap gap-2">
               <span className="text-xs text-slate-500">Live data · refreshes every 30s</span>
               <a href="https://monitor.betgevergiz.com" target="_blank" rel="noopener noreferrer"
                  className="text-xs text-slate-500 hover:text-slate-300 transition-colors">
@@ -433,59 +452,61 @@ export default function Home() {
         </section>
 
         {/* Skills */}
-        <section id="skills" className="py-20 px-6 max-w-7xl mx-auto">
+        <section id="skills" className="py-14 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
           <div className="flex items-baseline gap-3 mb-8">
             <div className="w-1 h-7 rounded-full bg-slate-600"></div>
             <h2 className="text-3xl font-bold text-white tracking-tight">Skills</h2>
           </div>
-          <div className="font-mono text-xs max-w-5xl mx-auto">
-            <div className="grid gap-4 mb-3 pb-2 border-b border-white/10 text-slate-500 uppercase tracking-wider text-[10px]" style={{gridTemplateColumns: '2fr 3fr 120px'}}>
-              <span>Skill</span>
-              <span>Proficiency</span>
-              <span>Status</span>
-            </div>
-            {[
-              { name: 'Proxmox VE', level: 16, status: 'PROD', color: 'emerald' },
-              { name: 'Linux (Debian/Ubuntu)', level: 16, status: 'DAILY', color: 'emerald' },
-              { name: 'Docker & Compose', level: 16, status: 'PROD', color: 'emerald' },
-              { name: 'Cloudflare Tunnels', level: 18, status: 'PROD', color: 'emerald' },
-              { name: 'LXC Containers', level: 14, status: 'PROD', color: 'emerald' },
-              { name: 'Python / Bash', level: 14, status: 'DAILY', color: 'emerald' },
-              { name: 'Networking (DNS, VPN, Firewall)', level: 14, status: 'PROD', color: 'emerald' },
-              { name: 'Network Architecture (VLANs, Routing)', level: 10, status: 'PROD', color: 'emerald' },
-              { name: 'Kubernetes / k3s', level: 10, status: 'LEARNING', color: 'amber' },
-              { name: 'Terraform (HCL)', level: 8, status: 'LEARNING', color: 'amber' },
-              { name: 'AWS / Cloud Security', level: 8, status: 'LEARNING', color: 'amber' },
-              { name: 'CI/CD Pipelines', level: 8, status: 'LEARNING', color: 'amber' },
-              { name: 'systemd / cron / service mgmt', level: 13, status: 'DAILY', color: 'emerald' },
-              { name: 'SSH key mgmt / secrets hygiene', level: 12, status: 'PROD', color: 'emerald' },
-              { name: 'SQLite', level: 12, status: 'PROD', color: 'emerald' },
-            ].map((skill) => (
-              <div key={skill.name} className="grid gap-4 py-1.5 border-b border-white/5 hover:bg-white/5 px-2 -mx-2 rounded transition-colors" style={{gridTemplateColumns: '2fr 3fr 120px'}}>
-                <span className="text-slate-300">{skill.name}</span>
-                <span className="text-slate-400 tracking-widest">{'█'.repeat(skill.level)}{'░'.repeat(20 - skill.level)}</span>
-                <span className={skill.color === 'emerald' ? 'text-emerald-400' : 'text-amber-400'}>{skill.status}</span>
+          <div className="overflow-x-auto -mx-4 sm:mx-0">
+            <div className="font-mono text-xs max-w-5xl mx-auto min-w-[500px] px-4 sm:px-0">
+              <div className="grid gap-4 mb-3 pb-2 border-b border-white/10 text-slate-500 uppercase tracking-wider text-[10px]" style={{gridTemplateColumns: '2fr 3fr 120px'}}>
+                <span>Skill</span>
+                <span>Proficiency</span>
+                <span>Status</span>
               </div>
-            ))}
+              {[
+                { name: 'Proxmox VE', level: 16, status: 'PROD', color: 'emerald' },
+                { name: 'Linux (Debian/Ubuntu)', level: 16, status: 'DAILY', color: 'emerald' },
+                { name: 'Docker & Compose', level: 16, status: 'PROD', color: 'emerald' },
+                { name: 'Cloudflare Tunnels', level: 18, status: 'PROD', color: 'emerald' },
+                { name: 'LXC Containers', level: 14, status: 'PROD', color: 'emerald' },
+                { name: 'Python / Bash', level: 14, status: 'DAILY', color: 'emerald' },
+                { name: 'Networking (DNS, VPN, Firewall)', level: 14, status: 'PROD', color: 'emerald' },
+                { name: 'Network Architecture (VLANs, Routing)', level: 10, status: 'PROD', color: 'emerald' },
+                { name: 'Kubernetes / k3s', level: 10, status: 'LEARNING', color: 'amber' },
+                { name: 'Terraform (HCL)', level: 8, status: 'LEARNING', color: 'amber' },
+                { name: 'AWS / Cloud Security', level: 8, status: 'LEARNING', color: 'amber' },
+                { name: 'CI/CD Pipelines', level: 8, status: 'LEARNING', color: 'amber' },
+                { name: 'systemd / cron / service mgmt', level: 13, status: 'DAILY', color: 'emerald' },
+                { name: 'SSH key mgmt / secrets hygiene', level: 12, status: 'PROD', color: 'emerald' },
+                { name: 'SQLite', level: 12, status: 'PROD', color: 'emerald' },
+              ].map((skill) => (
+                <div key={skill.name} className="grid gap-4 py-1.5 border-b border-white/5 hover:bg-white/5 px-2 -mx-2 rounded transition-colors" style={{gridTemplateColumns: '2fr 3fr 120px'}}>
+                  <span className="text-slate-300">{skill.name}</span>
+                  <span className="text-slate-400 tracking-widest">{'█'.repeat(skill.level)}{'░'.repeat(20 - skill.level)}</span>
+                  <span className={skill.color === 'emerald' ? 'text-emerald-400' : 'text-amber-400'}>{skill.status}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* Contact CTA */}
-        <section className="py-16 px-6 max-w-7xl mx-auto text-center">
+        <section className="py-14 sm:py-16 px-4 sm:px-6 max-w-7xl mx-auto text-center">
           <h2 className="text-2xl font-semibold text-white mb-3">Let&apos;s Talk</h2>
           <p className="text-slate-400 text-base leading-relaxed mb-4 max-w-2xl mx-auto">
             I&apos;m actively looking for IT support, sysadmin, or junior infrastructure roles — remote or Miami-based. If you want someone who can communicate at both levels and keeps building on their own time, let&apos;s talk.
           </p>
-          <p className="text-slate-500 text-sm mt-4 mb-6 font-mono text-xs border-l-2 border-emerald-500/40 pl-3 max-w-2xl mx-auto text-left">
+          <p className="text-slate-500 text-sm mt-4 mb-6 font-mono text-xs border-l-2 border-emerald-500/40 pl-3 max-w-2xl mx-auto text-left break-words">
             // Most IT support hires can troubleshoot what they&apos;ve seen before.<br />
             // Someone who runs their own infrastructure troubleshoots what they&apos;ve never seen before.<br />
             // That&apos;s the difference.
           </p>
           <button
             onClick={handleEmailCopy}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium rounded-lg transition-all duration-200 cursor-pointer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium rounded-lg transition-all duration-200 cursor-pointer text-sm sm:text-base"
           >
-            <Mail className="w-4 h-4" /> {copied ? 'jbetgevergiz@gmail.com copied ✓' : 'jbetgevergiz@gmail.com'}
+            <Mail className="w-4 h-4 shrink-0" /> <span className="truncate">{copied ? 'jbetgevergiz@gmail.com copied ✓' : 'jbetgevergiz@gmail.com'}</span>
           </button>
           <div className="mt-4">
             <a
@@ -500,7 +521,7 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="py-8 px-6 border-t border-white/10 max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-4">
+        <footer className="py-8 px-4 sm:px-6 border-t border-white/10 max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-4">
           <div className="flex items-center gap-4">
             <a href="https://github.com/jbetgevergiz" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-white transition-colors">
               <Github className="w-5 h-5" />
