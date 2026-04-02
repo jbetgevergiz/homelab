@@ -63,7 +63,7 @@ export default function Home() {
       <main className="lg:ml-64 flex-1">
         {/* Hero */}
         <section className="mesh-bg min-h-screen flex flex-col justify-center relative">
-          <div className="px-8 py-20 max-w-5xl mx-auto w-full">
+          <div className="px-6 py-20 max-w-7xl mx-auto w-full">
           <div className="mb-4">
             <span className="font-mono text-xs text-emerald-500/70">{greeting.text}</span>
             <span className="font-mono text-xs text-slate-600 ml-3">{greeting.note}</span>
@@ -97,12 +97,12 @@ export default function Home() {
         </section>
 
         {/* About */}
-        <section id="about" className="py-20 px-8 max-w-5xl mx-auto">
+        <section id="about" className="py-20 px-6 max-w-7xl mx-auto">
           <div className="flex items-baseline gap-3 mb-8">
             <div className="w-1 h-7 rounded-full bg-slate-600"></div>
             <h2 className="text-3xl font-bold text-white tracking-tight">About</h2>
           </div>
-          <div className="max-w-3xl space-y-5">
+          <div className="space-y-5">
             <div className="p-4 bg-white/5 border border-white/10 rounded-xl mb-6">
               <p className="text-slate-300 text-sm leading-relaxed">
                 <span className="text-white font-semibold">TL;DR:</span> 5 years in enterprise tech sales → self-taught infrastructure engineer. Running a production homelab with 10+ containers, a k3s cluster on Raspberry Pis, and more. Providing L1/L2 IT support at Moderne. Currently studying CompTIA A+.
@@ -127,7 +127,7 @@ export default function Home() {
         </section>
 
         {/* Live Infrastructure */}
-        <section id="infrastructure" className="py-8 px-8 max-w-5xl mx-auto">
+        <section id="infrastructure" className="py-8 px-6 max-w-7xl mx-auto">
           <div className="flex items-baseline justify-between gap-3 mb-6">
             <div className="flex items-baseline gap-3">
               <div className="w-1 h-7 rounded-full bg-slate-600"></div>
@@ -162,7 +162,7 @@ export default function Home() {
         </section>
 
         {/* Projects */}
-        <section id="projects" className="py-20 px-8 max-w-5xl mx-auto">
+        <section id="projects" className="py-20 px-6 max-w-7xl mx-auto">
           <div className="flex items-baseline gap-3 mb-8">
             <div className="w-1 h-7 rounded-full bg-slate-600"></div>
             <h2 className="text-3xl font-bold text-white tracking-tight">Projects</h2>
@@ -421,7 +421,7 @@ export default function Home() {
         </section>
 
         {/* Skills */}
-        <section id="skills" className="py-20 px-8 max-w-5xl mx-auto">
+        <section id="skills" className="py-20 px-6 max-w-7xl mx-auto">
           <div className="flex items-baseline gap-3 mb-8">
             <div className="w-1 h-7 rounded-full bg-slate-600"></div>
             <h2 className="text-3xl font-bold text-white tracking-tight">Skills</h2>
@@ -456,9 +456,9 @@ export default function Home() {
         </section>
 
         {/* Contact CTA */}
-        <section className="py-16 px-8 max-w-3xl mx-auto text-center">
+        <section className="py-16 px-6 max-w-7xl mx-auto text-center">
           <h2 className="text-2xl font-semibold text-white mb-3">Let&apos;s Talk</h2>
-          <p className="text-slate-400 text-base leading-relaxed mb-6 max-w-xl mx-auto">
+          <p className="text-slate-400 text-base leading-relaxed mb-6 max-w-2xl mx-auto">
             I&apos;m actively looking for IT support, sysadmin, or junior infrastructure roles — remote or Miami-based. If you want someone who can communicate at both levels and keeps building on their own time, let&apos;s talk.
           </p>
           <button
@@ -480,7 +480,7 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="py-8 px-8 border-t border-white/10 max-w-5xl mx-auto flex items-center justify-between flex-wrap gap-4">
+        <footer className="py-8 px-6 border-t border-white/10 max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-4">
           <div className="flex items-center gap-4">
             <a href="https://github.com/jbetgevergiz" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-white transition-colors">
               <Github className="w-5 h-5" />
