@@ -427,7 +427,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-white tracking-tight">Skills</h2>
           </div>
           <div className="font-mono text-xs">
-            <div className="grid grid-cols-3 gap-4 mb-3 pb-2 border-b border-white/10 text-slate-500 uppercase tracking-wider text-[10px]">
+            <div className="grid gap-4 mb-3 pb-2 border-b border-white/10 text-slate-500 uppercase tracking-wider text-[10px]" style={{gridTemplateColumns: '2fr 3fr 120px'}}>
               <span>Skill</span>
               <span>Proficiency</span>
               <span>Status</span>
@@ -446,9 +446,9 @@ export default function Home() {
               { name: 'CI/CD Pipelines', level: 4, status: 'LEARNING', color: 'amber' },
               { name: 'SQLite', level: 6, status: 'PROD', color: 'emerald' },
             ].map((skill) => (
-              <div key={skill.name} className="grid grid-cols-3 gap-4 py-1.5 border-b border-white/5 hover:bg-white/5 px-2 -mx-2 rounded transition-colors">
+              <div key={skill.name} className="grid gap-4 py-1.5 border-b border-white/5 hover:bg-white/5 px-2 -mx-2 rounded transition-colors" style={{gridTemplateColumns: '2fr 3fr 120px'}}>
                 <span className="text-slate-300">{skill.name}</span>
-                <span className="text-slate-500">{'█'.repeat(skill.level)}{'░'.repeat(10 - skill.level)}</span>
+                <span className="text-slate-400 tracking-widest">{'█'.repeat(skill.level)}{'░'.repeat(10 - skill.level)}</span>
                 <span className={skill.color === 'emerald' ? 'text-emerald-400' : 'text-amber-400'}>{skill.status}</span>
               </div>
             ))}
