@@ -2,7 +2,8 @@
 
 **Last Updated:** April 2026  
 **Host:** 192.168.1.67 · Proxmox VE 8.x  
-**Live Status API:** https://status.betgevergiz.com/api/status
+**Live Status API:** https://status.betgevergiz.com/api/status  
+**Monitoring Dashboard:** https://monitor.betgevergiz.com
 
 ---
 
@@ -80,6 +81,7 @@ The design philosophy is deliberate: minimize external dependencies, eliminate p
 | CT 130 | reader | RSS reader stack | FreshRSS or Miniflux | Running |
 | CT 131 | dealhawk | PC parts price monitor + Telegram alerts | Python, SQLite, APScheduler | Running |
 | CT 132 | status-api | Live homelab metrics API | Flask, Python | Running |
+| CT 133 | monitoring | Metrics collection + visualization | Prometheus, Grafana | Running |
 
 ---
 
@@ -203,16 +205,17 @@ This is a local-only backup strategy. Off-site backup (e.g., rclone to Backblaze
 
 Real-time container state and host metrics are available at:
 
-**`https://status.betgevergiz.com/api/status`**
+**Grafana Dashboard:** **[https://monitor.betgevergiz.com](https://monitor.betgevergiz.com)**
 
-Response includes:
-- Host load average (1m, 5m, 15m)
-- Host RAM utilization
-- Per-container name, status (running/stopped), CPU, and RAM
+Grafana (CT 133) is backed by Prometheus, which scrapes a `/metrics` endpoint on the status API (CT 132) every 15 seconds. Metrics include:
+- Host load average (1m, 5m)
+- Host RAM utilization (absolute and percent)
+- Per-container running state (labeled by ID and name)
+- Total and running container counts
 
-This API is served by CT 132 (`status-api`), a lightweight Flask application that queries the Proxmox API internally and exposes a public JSON endpoint via Cloudflare Tunnel.
+The raw JSON API remains available at `https://status.betgevergiz.com/api/status` and continues to feed the portfolio's Live Infrastructure widget.
 
-The portfolio's Live Infrastructure section is a live consumer of this API.
+CT 132 (`status-api`) exposes both `/api/status` (JSON, for the portfolio widget) and `/metrics` (Prometheus text format, for Grafana).
 
 ---
 
@@ -221,4 +224,4 @@ The portfolio's Live Infrastructure section is a live consumer of this API.
 - **VLAN segmentation** — isolate media, infrastructure, and public-facing containers onto separate network segments
 - **Off-site backups** — rclone to object storage for disaster recovery
 - **Alerting** — Telegram notifications on container state changes and high load events
-- **Monitoring stack** — Prometheus + Grafana for time-series metrics and dashboards
+- ~~**Monitoring stack** — Prometheus + Grafana for time-series metrics and dashboards~~ ✅ **Done** — CT 133 runs Prometheus + Grafana, accessible at https://monitor.betgevergiz.com
