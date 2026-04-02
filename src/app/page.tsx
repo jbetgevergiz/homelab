@@ -433,22 +433,22 @@ export default function Home() {
               <span>Status</span>
             </div>
             {[
-              { name: 'Proxmox VE', level: 8, status: 'PROD', color: 'emerald' },
-              { name: 'Linux (Debian/Ubuntu)', level: 8, status: 'DAILY', color: 'emerald' },
-              { name: 'Docker & Compose', level: 8, status: 'PROD', color: 'emerald' },
-              { name: 'Cloudflare Tunnels', level: 9, status: 'PROD', color: 'emerald' },
-              { name: 'LXC Containers', level: 7, status: 'PROD', color: 'emerald' },
-              { name: 'Python / Bash', level: 7, status: 'DAILY', color: 'emerald' },
-              { name: 'Networking (DNS/VPN)', level: 7, status: 'PROD', color: 'emerald' },
-              { name: 'Kubernetes / k3s', level: 5, status: 'LEARNING', color: 'amber' },
-              { name: 'Terraform (HCL)', level: 4, status: 'LEARNING', color: 'amber' },
-              { name: 'AWS / Cloud Security', level: 4, status: 'LEARNING', color: 'amber' },
-              { name: 'CI/CD Pipelines', level: 4, status: 'LEARNING', color: 'amber' },
-              { name: 'SQLite', level: 6, status: 'PROD', color: 'emerald' },
+              { name: 'Proxmox VE', level: 16, status: 'PROD', color: 'emerald' },
+              { name: 'Linux (Debian/Ubuntu)', level: 16, status: 'DAILY', color: 'emerald' },
+              { name: 'Docker & Compose', level: 16, status: 'PROD', color: 'emerald' },
+              { name: 'Cloudflare Tunnels', level: 18, status: 'PROD', color: 'emerald' },
+              { name: 'LXC Containers', level: 14, status: 'PROD', color: 'emerald' },
+              { name: 'Python / Bash', level: 14, status: 'DAILY', color: 'emerald' },
+              { name: 'Networking (DNS/VPN)', level: 14, status: 'PROD', color: 'emerald' },
+              { name: 'Kubernetes / k3s', level: 10, status: 'LEARNING', color: 'amber' },
+              { name: 'Terraform (HCL)', level: 8, status: 'LEARNING', color: 'amber' },
+              { name: 'AWS / Cloud Security', level: 8, status: 'LEARNING', color: 'amber' },
+              { name: 'CI/CD Pipelines', level: 8, status: 'LEARNING', color: 'amber' },
+              { name: 'SQLite', level: 12, status: 'PROD', color: 'emerald' },
             ].map((skill) => (
               <div key={skill.name} className="grid gap-4 py-1.5 border-b border-white/5 hover:bg-white/5 px-2 -mx-2 rounded transition-colors" style={{gridTemplateColumns: '2fr 3fr 120px'}}>
                 <span className="text-slate-300">{skill.name}</span>
-                <span className="text-slate-400 tracking-widest">{'█'.repeat(skill.level)}{'░'.repeat(10 - skill.level)}</span>
+                <span className="text-slate-400 tracking-widest">{'█'.repeat(skill.level)}{'░'.repeat(20 - skill.level)}</span>
                 <span className={skill.color === 'emerald' ? 'text-emerald-400' : 'text-amber-400'}>{skill.status}</span>
               </div>
             ))}
