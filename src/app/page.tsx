@@ -8,17 +8,8 @@ import EasterEgg from "@/components/EasterEgg";
 import ScrollProgress from "@/components/ScrollProgress";
 import DynamicStatus from "@/components/DynamicStatus";
 
-function getGreeting() {
-  const hour = new Date().getHours();
-  if (hour >= 5 && hour < 12) return { text: 'Good morning.', note: '// Coffee brewing. Containers up.' };
-  if (hour >= 12 && hour < 17) return { text: 'Good afternoon.', note: '// Mid-session. Everything nominal.' };
-  if (hour >= 17 && hour < 21) return { text: 'Good evening.', note: '// Post-work homelab hours.' };
-  return { text: 'Still at it?', note: '// The homelab never sleeps.' };
-}
-
 export default function Home() {
   const [copied, setCopied] = useState(false);
-  const greeting = getGreeting();
 
   const handleEmailCopy = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -65,10 +56,6 @@ export default function Home() {
         {/* Hero */}
         <section className="mesh-bg min-h-screen flex flex-col justify-center relative">
           <div className="px-6 py-20 max-w-7xl mx-auto w-full">
-            <div className="mb-4">
-              <span className="font-mono text-xs text-emerald-500/70">{greeting.text}</span>
-              <span className="font-mono text-xs text-slate-600 ml-3">{greeting.note}</span>
-            </div>
             <DynamicStatus />
             <h1 data-hero-name style={{ fontFamily: 'var(--font-space-grotesk)' }} className="text-7xl sm:text-8xl font-extrabold text-[#f0f0f0] mb-3 tracking-tight leading-none mt-4">
               Jason Betgevergiz
@@ -84,7 +71,7 @@ export default function Home() {
             </blockquote>
             <div className="p-4 bg-white/5 border border-white/10 rounded-xl mb-8 max-w-2xl">
               <p className="text-slate-300 text-sm leading-relaxed">
-                <span className="text-white font-semibold">TL;DR:</span> 5 years in enterprise tech sales → self-taught infrastructure engineer. Running a production homelab with 10+ containers, a k3s cluster on Raspberry Pis, and more. Providing L1/L2 IT support at Moderne. Currently studying CompTIA A+.
+                <span className="text-white font-semibold">TL;DR:</span> 5 years in enterprise tech sales → self-taught infrastructure engineer. Running a production homelab with 10+ containers, a k3s cluster on Raspberry Pis, and more. Providing <span className="text-white">L1/L2 IT support at Moderne</span> — ~90% ticket resolution without escalation for 12 users across Salesforce, Salesloft, Zoominfo, and Nooks. Currently pursuing <span className="text-white">CompTIA Network+</span>.
               </p>
             </div>
             <div className="flex gap-4 flex-wrap">
@@ -249,8 +236,8 @@ export default function Home() {
             <h3 className="text-lg font-semibold text-white">In Progress</h3>
           </div>
           <div className="flex flex-wrap gap-2 mb-6">
-            <span className="px-2.5 py-1 rounded-full text-xs bg-amber-900/40 text-amber-400 border border-amber-800/50">Studying: CompTIA A+</span>
-            <span className="px-2.5 py-1 rounded-full text-xs bg-slate-800 text-slate-400 border border-slate-700">Next: Network+, Security+</span>
+            <span className="px-2.5 py-1 rounded-full text-xs bg-amber-900/40 text-amber-400 border border-amber-800/50">Studying: CompTIA Network+</span>
+            <span className="px-2.5 py-1 rounded-full text-xs bg-slate-800 text-slate-400 border border-slate-700">Next: Security+</span>
             <span className="px-2.5 py-1 rounded-full text-xs bg-slate-800 text-slate-400 border border-slate-700">Target: AWS Security Specialty</span>
           </div>
           <div className="grid grid-cols-3 gap-4">
@@ -464,11 +451,14 @@ export default function Home() {
               { name: 'Cloudflare Tunnels', level: 18, status: 'PROD', color: 'emerald' },
               { name: 'LXC Containers', level: 14, status: 'PROD', color: 'emerald' },
               { name: 'Python / Bash', level: 14, status: 'DAILY', color: 'emerald' },
-              { name: 'Networking (DNS/VPN)', level: 14, status: 'PROD', color: 'emerald' },
+              { name: 'Networking (DNS, VPN, Firewall)', level: 14, status: 'PROD', color: 'emerald' },
+              { name: 'Network Architecture (VLANs, Routing)', level: 10, status: 'PROD', color: 'emerald' },
               { name: 'Kubernetes / k3s', level: 10, status: 'LEARNING', color: 'amber' },
               { name: 'Terraform (HCL)', level: 8, status: 'LEARNING', color: 'amber' },
               { name: 'AWS / Cloud Security', level: 8, status: 'LEARNING', color: 'amber' },
               { name: 'CI/CD Pipelines', level: 8, status: 'LEARNING', color: 'amber' },
+              { name: 'systemd / cron / service mgmt', level: 13, status: 'DAILY', color: 'emerald' },
+              { name: 'SSH key mgmt / secrets hygiene', level: 12, status: 'PROD', color: 'emerald' },
               { name: 'SQLite', level: 12, status: 'PROD', color: 'emerald' },
             ].map((skill) => (
               <div key={skill.name} className="grid gap-4 py-1.5 border-b border-white/5 hover:bg-white/5 px-2 -mx-2 rounded transition-colors" style={{gridTemplateColumns: '2fr 3fr 120px'}}>
