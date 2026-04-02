@@ -10,10 +10,10 @@ import DynamicStatus from "@/components/DynamicStatus";
 
 function getGreeting() {
   const hour = new Date().getHours();
-  if (hour >= 5 && hour < 12) return { text: 'Good morning.', note: '// Brewed a coffee, opened the terminal.' };
-  if (hour >= 12 && hour < 17) return { text: 'Good afternoon.', note: '// Containers are running. As expected.' };
+  if (hour >= 5 && hour < 12) return { text: 'Good morning.', note: '// Coffee brewing. Containers up.' };
+  if (hour >= 12 && hour < 17) return { text: 'Good afternoon.', note: '// Mid-session. Everything nominal.' };
   if (hour >= 17 && hour < 21) return { text: 'Good evening.', note: '// Post-work homelab hours.' };
-  return { text: 'Still at it?', note: '// Respect. The homelab never sleeps.' };
+  return { text: 'Still at it?', note: '// The homelab never sleeps.' };
 }
 
 export default function Home() {

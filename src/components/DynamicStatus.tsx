@@ -1,27 +1,41 @@
 'use client';
 import { useEffect, useState } from 'react';
 
+interface StatusData {
+  containers?: {
+    running?: number;
+    total?: number;
+    list?: Array<{ status: string }>;
+  };
+  ok?: boolean;
+}
+
 export default function DynamicStatus() {
-  const [status, setStatus] = useState<{containers: number, uptime_days?: number} | null>(null);
+  const [data, setData] = useState<{ running: number; total: number } | null>(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetch('https://status.betgevergiz.com/api/status')
       .then(r => r.json())
-      .then(data => {
-        const running = Array.isArray(data.containers)
-          ? data.containers.filter((c: {status: string}) => c.status === 'running').length
-          : data.running_containers || 0;
-        setStatus({ containers: running });
+      .then((json: StatusData) => {
+        const running = json.containers?.running ??
+          (json.containers?.list?.filter(c => c.status === 'running').length ?? 0);
+        const total = json.containers?.total ?? 0;
+        setData({ running, total });
       })
-      .catch(() => setStatus(null));
+      .catch(() => setError(true));
   }, []);
 
-  if (!status) return null;
+  if (error || !data) return null;
 
   return (
-    <div className="font-mono text-[10px] text-emerald-500/50 mt-1">
-      $ curl status.betgevergiz.com/api/status | jq .running_containers<br />
-      <span className="text-emerald-400/70">{status.containers} containers running</span>
+    <div className="font-mono text-[11px] text-emerald-500/60 mt-2 space-y-0.5">
+      <span className="text-slate-600">$ curl status.betgevergiz.com/api/status</span>
+      <div className="text-emerald-400/80">
+        → <span className="text-emerald-300">{data.running} containers running</span>
+        <span className="text-slate-500"> · {data.total - data.running} stopped</span>
+        <span className="text-slate-600"> · 0 open ports</span>
+      </div>
     </div>
   );
 }
