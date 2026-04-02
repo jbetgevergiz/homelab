@@ -6,6 +6,7 @@ import MotionEffects from "@/components/MotionEffects";
 import ConsoleMessage from "@/components/ConsoleMessage";
 import EasterEgg from "@/components/EasterEgg";
 import ScrollProgress from "@/components/ScrollProgress";
+import DynamicStatus from "@/components/DynamicStatus";
 
 function getGreeting() {
   const hour = new Date().getHours();
@@ -40,7 +41,7 @@ export default function Home() {
             <span className="text-xs text-slate-400">Available for work</span>
           </div>
           <h1 className="text-lg font-bold text-white leading-tight">Jason Betgevergiz</h1>
-          <p className="text-sm text-slate-400 mt-1">Infrastructure &amp; Systems Engineer</p>
+          <p className="text-sm text-slate-400 mt-1">Junior Infrastructure Engineer</p>
         </div>
         <nav className="flex flex-col gap-2 flex-1">
           <a href="#about" className="nav-link text-sm text-slate-400 hover:text-white transition-colors py-1.5 px-2 rounded-md hover:bg-white/5">About</a>
@@ -64,98 +65,39 @@ export default function Home() {
         {/* Hero */}
         <section className="mesh-bg min-h-screen flex flex-col justify-center relative">
           <div className="px-6 py-20 max-w-7xl mx-auto w-full">
-          <div className="mb-4">
-            <span className="font-mono text-xs text-emerald-500/70">{greeting.text}</span>
-            <span className="font-mono text-xs text-slate-600 ml-3">{greeting.note}</span>
-          </div>
-          <h1 data-hero-name style={{ fontFamily: 'var(--font-space-grotesk)' }} className="text-7xl sm:text-8xl font-extrabold text-[#f0f0f0] mb-3 tracking-tight leading-none">
-            Jason Betgevergiz
-          </h1>
-          <p className="text-sm text-slate-400 mb-2 font-light tracking-[0.08em] uppercase">
-            Infrastructure &amp; Systems Engineer
-            <span className="inline-block w-0.5 h-4 bg-emerald-500 ml-1 animate-pulse align-middle" />
-          </p>
-          <blockquote className="border-l-2 border-emerald-500/60 pl-4 mb-8 max-w-lg">
-            <p className="text-slate-200 text-base font-medium leading-snug">
-              &ldquo;5 years selling to engineering leaders.<br />Now building the infrastructure I used to demo.&rdquo;
+            <div className="mb-4">
+              <span className="font-mono text-xs text-emerald-500/70">{greeting.text}</span>
+              <span className="font-mono text-xs text-slate-600 ml-3">{greeting.note}</span>
+            </div>
+            <DynamicStatus />
+            <h1 data-hero-name style={{ fontFamily: 'var(--font-space-grotesk)' }} className="text-7xl sm:text-8xl font-extrabold text-[#f0f0f0] mb-3 tracking-tight leading-none mt-4">
+              Jason Betgevergiz
+            </h1>
+            <p className="text-sm text-slate-400 mb-2 font-light tracking-[0.08em] uppercase">
+              Junior Infrastructure Engineer
+              <span className="inline-block w-0.5 h-4 bg-emerald-500 ml-1 animate-pulse align-middle" />
             </p>
-          </blockquote>
-          <div className="flex gap-4 flex-wrap">
-            <a href="#about" className="px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium rounded-lg transition-all duration-200">
-              Read My Story
-            </a>
-            <a
-              href="https://github.com/jbetgevergiz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-transparent hover:bg-white/5 border border-white/10 text-slate-300 hover:text-white font-medium rounded-lg transition-all duration-200"
-            >
-              <Github className="w-4 h-4" /> GitHub
-            </a>
-          </div>
-          </div>
-        </section>
-
-        {/* About */}
-        <section id="about" className="py-20 px-6 max-w-7xl mx-auto">
-          <div className="flex items-baseline gap-3 mb-8">
-            <div className="w-1 h-7 rounded-full bg-slate-600"></div>
-            <h2 className="text-3xl font-bold text-white tracking-tight">About</h2>
-          </div>
-          <div className="space-y-5">
-            <div className="p-4 bg-white/5 border border-white/10 rounded-xl mb-6">
+            <blockquote className="border-l-2 border-emerald-500/60 pl-4 mb-6 max-w-lg">
+              <p className="text-slate-200 text-base font-medium leading-snug">
+                &ldquo;5 years selling to engineering leaders.<br />Now building the infrastructure I used to demo.&rdquo;
+              </p>
+            </blockquote>
+            <div className="p-4 bg-white/5 border border-white/10 rounded-xl mb-8 max-w-2xl">
               <p className="text-slate-300 text-sm leading-relaxed">
                 <span className="text-white font-semibold">TL;DR:</span> 5 years in enterprise tech sales → self-taught infrastructure engineer. Running a production homelab with 10+ containers, a k3s cluster on Raspberry Pis, and more. Providing L1/L2 IT support at Moderne. Currently studying CompTIA A+.
               </p>
             </div>
-            <p className="text-slate-300 leading-relaxed">
-              For as long as I can remember, I&apos;ve been obsessed with computers. I was the kid taking things apart just to figure out how they worked, teaching myself to code, building machines out of whatever I could get my hands on. That curiosity never faded — but for a long time, I convinced myself that without a degree, I had no business turning it into a career. So I leaned into what did come naturally: building relationships and communicating clearly. That led me into enterprise tech sales.
-            </p>
-            <blockquote className="border-l-2 border-slate-600 pl-4 my-6">
-              <p className="text-slate-200 text-lg font-medium leading-snug italic">&ldquo;I bridge two worlds that rarely overlap.&rdquo;</p>
-            </blockquote>
-            <p className="text-slate-300 leading-relaxed">
-              I spent five years selling complex software to engineering leaders — cybersecurity platforms, risk management tools, and most recently, automated code migration and AI developer tooling at Moderne. My job was never just closing deals. It was sitting across from engineers in deeply technical conversations about dependency management, framework migrations, and developer workflows, and distilling those concepts into language that landed with both technical and non-technical stakeholders. I got good at it. But the more technical my world became, the more I realized I wasn&apos;t just keeping up — I was in my element. Moderne was the tipping point. Surrounded daily by that level of technical depth, I finally stopped second-guessing myself and decided to reach for what I&apos;d always wanted.
-            </p>
-            <p className="text-slate-300 leading-relaxed">
-              So I started building — not through coursework or boot camps, but the same way I&apos;ve always learned: by doing. I stood up a Proxmox hypervisor at home and started running real services on it. Today it hosts over ten LXC containers and VMs: a Python-based price monitoring tool with a Next.js frontend and SQLite backend, Docker Compose service stacks with container-level VPN routing and Cloudflare tunnel access, and a growing list of services I maintain around the clock. At Moderne, I also wear the IT support hat alongside my sales role — handling the majority of internal technical issues without escalation for a team of 12 users across Salesforce, Salesloft, and Zoominfo.
-            </p>
-            <p className="text-slate-300 leading-relaxed">
-              I&apos;m building a Kubernetes cluster on Raspberry Pi hardware running BOINC distributed computing workloads for cancer research through World Community Grid. I&apos;m assembling a custom PC specifically to self-host large language models locally. Every skill on this page, I taught myself — because I genuinely couldn&apos;t stop myself from learning it. I&apos;m not asking anyone to take a gamble. I&apos;m asking them to look at what I&apos;ve already built and decide if they want in on what comes next.
-            </p>
-          </div>
-        </section>
-
-        {/* Live Infrastructure */}
-        <section id="infrastructure" className="py-8 px-6 max-w-7xl mx-auto">
-          <div className="flex items-baseline justify-between gap-3 mb-6">
-            <div className="flex items-baseline gap-3">
-              <div className="w-1 h-7 rounded-full bg-slate-600"></div>
-              <h2 className="text-2xl font-bold text-white tracking-tight">Live Infrastructure</h2>
-            </div>
-            <a
-              href="https://github.com/jbetgevergiz/homelab/blob/gh-pages/architecture.md"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-slate-500 hover:text-slate-300 transition-colors flex items-center gap-1"
-            >
-              View Architecture →
-            </a>
-          </div>
-          <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl overflow-hidden">
-            <iframe
-              src="https://monitor.betgevergiz.com/d/2291b076-6042-499d-bca1-724ac0a21850/proxmox-homelab?orgId=1&refresh=30s&theme=dark&kiosk"
-              width="100%"
-              height="400"
-              frameBorder="0"
-              title="Homelab Live Metrics"
-              className="w-full"
-            />
-            <div className="px-4 py-2 flex items-center justify-between border-t border-white/10">
-              <span className="text-xs text-slate-500">Live data · refreshes every 30s</span>
-              <a href="https://monitor.betgevergiz.com" target="_blank" rel="noopener noreferrer"
-                 className="text-xs text-slate-500 hover:text-slate-300 transition-colors">
-                Open in Grafana →
+            <div className="flex gap-4 flex-wrap">
+              <a href="#about" className="px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium rounded-lg transition-all duration-200">
+                Read My Story
+              </a>
+              <a
+                href="https://github.com/jbetgevergiz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-transparent hover:bg-white/5 border border-white/10 text-slate-300 hover:text-white font-medium rounded-lg transition-all duration-200"
+              >
+                <Github className="w-4 h-4" /> GitHub
               </a>
             </div>
           </div>
@@ -188,7 +130,7 @@ export default function Home() {
                 <span className="shrink-0 text-xs px-2 py-0.5 rounded-full border font-medium bg-emerald-900/60 text-emerald-400 border-emerald-800">Live</span>
               </div>
               <p className="text-slate-400 text-xs leading-relaxed flex-1">
-                Self-hosted Proxmox hypervisor running 10+ LXC containers and VMs 99%. Services include a media stack, web apps, price monitoring, AI assistant, and monitoring infrastructure — all maintained and troubleshot independently.
+                Self-hosted Proxmox hypervisor running 10+ LXC containers and VMs with 99%+ uptime. Services include a media stack, web apps, price monitoring, AI assistant, and monitoring infrastructure — all maintained and troubleshot independently.
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {["Proxmox VE", "LXC", "Docker", "Debian Linux"].map((t) => (
@@ -203,7 +145,7 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <a href="https://github.com/jbetgevergiz" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-slate-300 transition-colors mt-1">
+              <a href="https://github.com/jbetgevergiz/homelab" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-slate-300 transition-colors mt-1">
                 <Github className="w-3 h-3" /> View on GitHub <ExternalLink className="w-3 h-3" />
               </a>
             </div>
@@ -236,8 +178,8 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <a href="https://github.com/jbetgevergiz" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-slate-300 transition-colors mt-1">
-                <Github className="w-3 h-3" /> View on GitHub <ExternalLink className="w-3 h-3" />
+              <a href="https://github.com/jbetgevergiz/homelab/blob/gh-pages/architecture.md" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-slate-300 transition-colors mt-1">
+                <Github className="w-3 h-3" /> View Architecture <ExternalLink className="w-3 h-3" />
               </a>
             </div>
 
@@ -272,6 +214,32 @@ export default function Home() {
               <a href="https://github.com/jbetgevergiz/dealhawk" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-slate-300 transition-colors mt-1">
                 <Github className="w-3 h-3" /> View on GitHub <ExternalLink className="w-3 h-3" />
               </a>
+            </div>
+          </div>
+
+          {/* DealHawk Production Notes - surfaced from README */}
+          <div className="mb-12 border border-amber-500/20 rounded-xl bg-amber-950/10 overflow-hidden">
+            <div className="flex items-center gap-2 px-5 py-3 border-b border-amber-500/20 bg-amber-900/10">
+              <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+              <span className="font-mono text-xs text-amber-400">dealhawk — production notes</span>
+              <span className="ml-auto font-mono text-[10px] text-amber-600">// these are failure modes I actually hit</span>
+            </div>
+            <div className="grid grid-cols-3 gap-0 divide-x divide-amber-500/10">
+              <div className="p-4">
+                <p className="font-mono text-[10px] text-amber-500 mb-2 uppercase tracking-wider">Incident #1</p>
+                <p className="font-mono text-xs text-amber-300 mb-1">Amazon TLS fingerprint block</p>
+                <p className="text-slate-500 text-xs leading-relaxed">Requests library flagged by bot detection. Migrated to <code className="text-emerald-400 text-[10px]">curl_cffi</code> to spoof browser TLS handshake. Zero downtime on Newegg while fix was in flight.</p>
+              </div>
+              <div className="p-4">
+                <p className="font-mono text-[10px] text-amber-500 mb-2 uppercase tracking-wider">Incident #2</p>
+                <p className="font-mono text-xs text-amber-300 mb-1">Scheduler drift after container restart</p>
+                <p className="text-slate-500 text-xs leading-relaxed">APScheduler jobs not persisting across Docker restarts. Added <code className="text-emerald-400 text-[10px]">restart: unless-stopped</code> + job state logging. Alerts now resume within 60s of container recovery.</p>
+              </div>
+              <div className="p-4">
+                <p className="font-mono text-[10px] text-amber-500 mb-2 uppercase tracking-wider">Incident #3</p>
+                <p className="font-mono text-xs text-amber-300 mb-1">SQLite lock contention</p>
+                <p className="text-slate-500 text-xs leading-relaxed">Concurrent scheduler threads causing DB lock errors during price writes. Fixed with WAL mode + connection pooling. Chose SQLite over Postgres deliberately — Postgres would have been infrastructure theater at this scale.</p>
+              </div>
             </div>
           </div>
 
@@ -314,7 +282,7 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <a href="https://github.com/jbetgevergiz/project-cloud-security-homelab" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-slate-300 transition-colors mt-1">
+              <a href="https://github.com/jbetgevergiz/k3s-cluster" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-slate-300 transition-colors mt-1">
                 <Github className="w-3 h-3" /> View on GitHub <ExternalLink className="w-3 h-3" />
               </a>
             </div>
@@ -420,6 +388,63 @@ export default function Home() {
           </div>
         </section>
 
+        {/* About */}
+        <section id="about" className="py-20 px-6 max-w-7xl mx-auto">
+          <div className="flex items-baseline gap-3 mb-8">
+            <div className="w-1 h-7 rounded-full bg-slate-600"></div>
+            <h2 className="text-3xl font-bold text-white tracking-tight">About</h2>
+          </div>
+          <div className="space-y-5">
+            <p className="text-slate-300 leading-relaxed">
+              For as long as I can remember, I&apos;ve been obsessed with computers. I was the kid taking things apart just to figure out how they worked, teaching myself to code, building machines out of whatever I could get my hands on. That curiosity never faded — but for a long time, I convinced myself that without a degree, I had no business turning it into a career. So I leaned into what did come naturally: building relationships and communicating clearly. That led me into enterprise tech sales.
+            </p>
+            <p className="text-slate-300 leading-relaxed">
+              I spent five years selling complex software to engineering leaders — cybersecurity platforms, risk management tools, and most recently, automated code migration and AI developer tooling at Moderne. My job was never just closing deals. It was sitting across from engineers in deeply technical conversations about dependency management, framework migrations, and developer workflows, and distilling those concepts into language that landed with both technical and non-technical stakeholders. I got good at it. But the more technical my world became, the more I realized I wasn&apos;t just keeping up — I was in my element. Moderne was the tipping point. Surrounded daily by that level of technical depth, I finally stopped second-guessing myself and decided to reach for what I&apos;d always wanted.
+            </p>
+            <p className="text-slate-300 leading-relaxed">
+              So I started building — not through coursework or boot camps, but the same way I&apos;ve always learned: by doing. I stood up a Proxmox hypervisor at home and started running real services on it. Today it hosts over ten LXC containers and VMs: a Python-based price monitoring tool with a Next.js frontend and SQLite backend, Docker Compose service stacks with container-level VPN routing and Cloudflare tunnel access, and a growing list of services I maintain around the clock. At Moderne, I also wear the IT support hat alongside my sales role — handling the majority of internal technical issues without escalation for a team of 12 users across Salesforce, Salesloft, and Zoominfo.
+            </p>
+            <p className="text-slate-300 leading-relaxed">
+              I&apos;m building a Kubernetes cluster on Raspberry Pi hardware running BOINC distributed computing workloads for cancer research through World Community Grid. I&apos;m assembling a custom PC specifically to self-host large language models locally. Every skill on this page, I taught myself — because I genuinely couldn&apos;t stop myself from learning it. I&apos;m not asking anyone to take a gamble. I&apos;m asking them to look at what I&apos;ve already built and decide if they want in on what comes next.
+            </p>
+          </div>
+        </section>
+
+        {/* Live Infrastructure */}
+        <section id="infrastructure" className="py-8 px-6 max-w-7xl mx-auto">
+          <div className="flex items-baseline justify-between gap-3 mb-6">
+            <div className="flex items-baseline gap-3">
+              <div className="w-1 h-7 rounded-full bg-slate-600"></div>
+              <h2 className="text-2xl font-bold text-white tracking-tight">Live Infrastructure</h2>
+            </div>
+            <a
+              href="https://github.com/jbetgevergiz/homelab/blob/gh-pages/architecture.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-slate-500 hover:text-slate-300 transition-colors flex items-center gap-1"
+            >
+              View Architecture →
+            </a>
+          </div>
+          <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl overflow-hidden">
+            <iframe
+              src="https://monitor.betgevergiz.com/d/2291b076-6042-499d-bca1-724ac0a21850/proxmox-homelab?orgId=1&refresh=30s&theme=dark&kiosk"
+              width="100%"
+              height="400"
+              frameBorder="0"
+              title="Homelab Live Metrics"
+              className="w-full"
+            />
+            <div className="px-4 py-2 flex items-center justify-between border-t border-white/10">
+              <span className="text-xs text-slate-500">Live data · refreshes every 30s</span>
+              <a href="https://monitor.betgevergiz.com" target="_blank" rel="noopener noreferrer"
+                 className="text-xs text-slate-500 hover:text-slate-300 transition-colors">
+                Open in Grafana →
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* Skills */}
         <section id="skills" className="py-20 px-6 max-w-7xl mx-auto">
           <div className="flex items-baseline gap-3 mb-8">
@@ -458,8 +483,13 @@ export default function Home() {
         {/* Contact CTA */}
         <section className="py-16 px-6 max-w-7xl mx-auto text-center">
           <h2 className="text-2xl font-semibold text-white mb-3">Let&apos;s Talk</h2>
-          <p className="text-slate-400 text-base leading-relaxed mb-6 max-w-2xl mx-auto">
+          <p className="text-slate-400 text-base leading-relaxed mb-4 max-w-2xl mx-auto">
             I&apos;m actively looking for IT support, sysadmin, or junior infrastructure roles — remote or Miami-based. If you want someone who can communicate at both levels and keeps building on their own time, let&apos;s talk.
+          </p>
+          <p className="text-slate-500 text-sm mt-4 mb-6 font-mono text-xs border-l-2 border-emerald-500/40 pl-3 max-w-2xl mx-auto text-left">
+            // Most IT support hires can troubleshoot what they&apos;ve seen before.<br />
+            // Someone who runs their own infrastructure troubleshoots what they&apos;ve never seen before.<br />
+            // That&apos;s the difference.
           </p>
           <button
             onClick={handleEmailCopy}
