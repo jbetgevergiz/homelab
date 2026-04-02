@@ -426,7 +426,7 @@ export default function Home() {
             <div className="w-1 h-7 rounded-full bg-slate-600"></div>
             <h2 className="text-3xl font-bold text-white tracking-tight">Skills</h2>
           </div>
-          <div className="font-mono text-xs max-w-3xl">
+          <div className="font-mono text-xs max-w-3xl mx-auto">
             <div className="grid gap-4 mb-3 pb-2 border-b border-white/10 text-slate-500 uppercase tracking-wider text-[10px]" style={{gridTemplateColumns: '2fr 3fr 120px'}}>
               <span>Skill</span>
               <span>Proficiency</span>
