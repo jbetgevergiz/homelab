@@ -224,7 +224,25 @@ export default function Home() {
             </div>
           </div>
 
-          {/* DealHawk Production Notes */}
+          {/* DealHawk Screenshots */}
+          <div className="mb-6 border border-white/10 rounded-xl overflow-hidden bg-white/5">
+            <div className="flex items-center gap-2 px-5 py-3 border-b border-white/10 bg-white/[0.03]">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+              <span className="font-mono text-xs text-slate-400">dealhawk — live alert screenshots</span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+              <div className="flex flex-col gap-2">
+                <p className="font-mono text-[10px] text-emerald-400 uppercase tracking-wider">Deal Alert</p>
+                <img src="/dealhawk-alert.jpg" alt="DealHawk deal alert example" className="rounded-lg border border-white/10 w-full object-contain max-h-96" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <p className="font-mono text-[10px] text-amber-400 uppercase tracking-wider">Error / Warning Alert</p>
+                <img src="/dealhawk-warning.jpg" alt="DealHawk error alert example" className="rounded-lg border border-white/10 w-full object-contain max-h-96" />
+              </div>
+            </div>
+          </div>
+
+          {/* DealHawk Production Notes */
           <div className="mb-12 border border-amber-500/20 rounded-xl bg-amber-950/10 overflow-hidden">
             <div className="flex items-center gap-2 px-5 py-3 border-b border-amber-500/20 bg-amber-900/10 flex-wrap gap-y-1">
               <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse shrink-0"></span>
