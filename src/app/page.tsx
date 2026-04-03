@@ -233,11 +233,11 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
               <div className="flex flex-col gap-2">
                 <p className="font-mono text-[10px] text-emerald-400 uppercase tracking-wider">Deal Alert</p>
-                <img src="/dealhawk-alert.jpg" alt="DealHawk deal alert example" className="rounded-lg border border-white/10 w-full object-contain max-h-96" />
+                <img src="/homelab/dealhawk-alert.jpg" alt="DealHawk deal alert example" className="rounded-lg border border-white/10 w-full object-contain max-h-96" />
               </div>
               <div className="flex flex-col gap-2">
                 <p className="font-mono text-[10px] text-amber-400 uppercase tracking-wider">Error / Warning Alert</p>
-                <img src="/dealhawk-warning.jpg" alt="DealHawk error alert example" className="rounded-lg border border-white/10 w-full object-contain max-h-96" />
+                <img src="/homelab/dealhawk-warning.jpg" alt="DealHawk error alert example" className="rounded-lg border border-white/10 w-full object-contain max-h-96" />
               </div>
             </div>
           </div>
