@@ -15,7 +15,7 @@ const coreProjects = [
     badge: "Current",
     badgeStyle: "bg-emerald-900/60 text-emerald-400 border-emerald-800",
     description:
-      "Provide day-to-day L1/L2 support for a 10–15 person go-to-market team across Salesforce, Salesloft, ZoomInfo, Nooks, Zoom, and account access issues. I resolve the large majority of incidents without escalation, document fixes, and translate technical problems into plain English for end users.",
+      "Provide day-to-day L1/L2 support for a 10–15 person go-to-market team across Salesforce, Salesloft, ZoomInfo, Nooks, Zoom, and account access issues. I resolve most incidents without escalation and document fixes for repeatability.",
     tech: ["SaaS Admin", "User Support", "Access Troubleshooting", "Documentation"],
     skills: ["Ticket Triage", "User Communication", "Root Cause Isolation", "Remote Support"],
     link: "https://www.linkedin.com/in/jason-betgevergiz",
@@ -28,7 +28,7 @@ const coreProjects = [
     badge: "Live",
     badgeStyle: "bg-emerald-900/60 text-emerald-400 border-emerald-800",
     description:
-      "Built and maintain a self-hosted Proxmox environment running 10+ containers and VMs for internal services, monitoring, automation, and web apps. Regular work includes service recovery, container lifecycle management, networking changes, backups, hostname cleanup, and troubleshooting weird break/fix issues end to end.",
+      "Built and maintain a self-hosted Proxmox environment running 10+ containers and VMs for internal services, monitoring, automation, and web apps. Regular work includes service recovery, container lifecycle management, networking changes, backups, hostname cleanup, and handling break/fix incidents end to end, including recovery, networking changes, and container issues.",
     tech: ["Proxmox VE", "LXC", "Debian Linux", "Docker"],
     skills: ["Linux Administration", "Virtualization", "Service Recovery", "Networking"],
     link: "https://github.com/jbetgevergiz/homelab",
@@ -54,7 +54,7 @@ const coreProjects = [
     badge: "Live",
     badgeStyle: "bg-emerald-900/60 text-emerald-400 border-emerald-800",
     description:
-      "Built a production-style Python app that scrapes pricing data, stores history in SQLite, runs scheduled jobs, and sends Telegram alerts when thresholds are hit. More important than the code: I debugged TLS blocks, scheduler restart issues, and database lock contention until it stayed reliable.",
+      "Built a self-hosted Python automation app that scrapes pricing data, stores history in SQLite, runs scheduled jobs, and sends Telegram alerts when thresholds are hit. More important than the code: I debugged TLS blocks, scheduler restart issues, and database lock contention until it stayed reliable.",
     tech: ["Python", "SQLite", "Docker", "APScheduler", "Next.js"],
     skills: ["Troubleshooting", "Automation", "Log Analysis", "Reliability Fixes"],
     link: "https://github.com/jbetgevergiz/dealhawk",
@@ -67,7 +67,7 @@ const coreProjects = [
     badge: "Live",
     badgeStyle: "bg-emerald-900/60 text-emerald-400 border-emerald-800",
     description:
-      "Runs a multi-service Docker stack with VPN-routed traffic and Cloudflare Tunnel access. Good example of the kind of practical sysadmin work I enjoy: DNS, remote access, container networking, service dependencies, and fixing user-facing issues when playback or routing breaks.",
+      "Built and maintain a multi-service stack involving DNS, remote access, container networking, service dependencies, and user-facing troubleshooting, with VPN-routed traffic and Cloudflare Tunnel access.",
     tech: ["Docker Compose", "VPN Routing", "Cloudflare Tunnels", "DNS"],
     skills: ["Service Administration", "Remote Access", "Network Debugging", "User-Facing Support"],
     link: "https://github.com/jbetgevergiz/homelab/blob/gh-pages/architecture.md",
@@ -214,8 +214,22 @@ export default function Home() {
             </blockquote>
             <div className="p-4 bg-white/5 border border-white/10 rounded-xl mb-8 max-w-3xl">
               <p className="text-slate-300 text-sm leading-relaxed">
-                <span className="text-white font-semibold">What I do:</span> I support users, fix SaaS and access issues, and maintain a live homelab that gives me hands-on reps with Linux, Proxmox, Docker, networking, monitoring, and service recovery. I&apos;m targeting junior sysadmin, IT support, and infrastructure support roles where practical troubleshooting actually matters.
+                I provide day-to-day user support, troubleshoot SaaS and access issues, and run a live homelab where I get hands-on reps with Linux, Proxmox, Docker, networking, monitoring, backups, and service recovery. I&apos;m targeting junior sysadmin, IT support, and infrastructure support roles where practical troubleshooting matters.
               </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-8 max-w-5xl">
+              <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <p className="text-xs uppercase tracking-[0.12em] text-slate-500 mb-2">Why I&apos;m a fit</p>
+                <p className="text-sm text-slate-300 leading-relaxed">Resolve day-to-day L1/L2 user and SaaS issues without heavy escalation.</p>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <p className="text-xs uppercase tracking-[0.12em] text-slate-500 mb-2">Infrastructure reps</p>
+                <p className="text-sm text-slate-300 leading-relaxed">Operate a live homelab with Linux, Proxmox, Docker, monitoring, backups, and recovery work.</p>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <p className="text-xs uppercase tracking-[0.12em] text-slate-500 mb-2">Support + systems</p>
+                <p className="text-sm text-slate-300 leading-relaxed">Communicate clearly with end users while staying technical under the hood.</p>
+              </div>
             </div>
             <div className="flex gap-3 sm:gap-4 flex-wrap">
               <a href="#projects" className="px-5 py-2.5 sm:px-6 sm:py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium rounded-lg transition-all duration-200 text-sm sm:text-base">
@@ -238,16 +252,10 @@ export default function Home() {
           </div>
           <div className="space-y-5 max-w-4xl">
             <p className="text-slate-300 leading-relaxed">
-              I spent five years in enterprise tech sales, but the technical side was always the part I leaned toward. I liked digging into how systems worked, helping people get unstuck, and translating messy technical problems into answers that actually made sense.
+              I came from enterprise tech sales, but the technical side was always where I leaned. At Moderne, that became real internal IT support work: resolving user issues, fixing SaaS and access problems, documenting solutions, and handling most incidents without escalation.
             </p>
             <p className="text-slate-300 leading-relaxed">
-              At Moderne, that turned into real internal IT support work. I handle day-to-day issues for a small team across Salesforce, Salesloft, ZoomInfo, Nooks, and general access or workflow problems. I resolve most issues without escalation, which means I spend a lot of time doing the fundamentals well: listening, isolating the problem, testing fixes, documenting the answer, and keeping users calm when something breaks.
-            </p>
-            <p className="text-slate-300 leading-relaxed">
-              Outside work, I built the lab I wish I had years ago. It runs live services on Proxmox with containers, Docker stacks, monitoring, tunnels, automation, backups, and all the random break/fix work that comes with operating your own environment. That combination is the whole pitch: I&apos;m not just interested in infrastructure — I already spend my time supporting it.
-            </p>
-            <p className="text-slate-300 leading-relaxed">
-              I&apos;m looking for a team that needs someone dependable, technically curious, and comfortable at the intersection of users and systems. Junior sysadmin, IT support, and infrastructure support work is where I fit best right now.
+              Outside work, I built and maintain a live homelab with containers, monitoring, automation, tunnels, backups, and routine break/fix work. That&apos;s the core story here: user support experience plus hands-on infrastructure practice.
             </p>
           </div>
         </section>
@@ -398,7 +406,7 @@ export default function Home() {
         <section className="py-14 sm:py-16 px-4 sm:px-6 max-w-7xl mx-auto text-center">
           <h2 className="text-2xl font-semibold text-white mb-3">Let&apos;s talk</h2>
           <p className="text-slate-400 text-base leading-relaxed mb-4 max-w-2xl mx-auto">
-            If you&apos;re hiring for help desk, IT support, junior sysadmin, or infrastructure support, I&apos;d love to talk. My edge is simple: I can support users without getting lost technically, and I can work on systems without forgetting there&apos;s a human on the other end.
+            If you&apos;re hiring for help desk, IT support, junior sysadmin, or infrastructure support, I&apos;m ready to contribute immediately in a hands-on support environment. My value is simple: I can work well with users, troubleshoot methodically, and keep learning fast on the systems side.
           </p>
           <p className="text-slate-500 text-sm mt-4 mb-6 font-mono text-xs border-l-2 border-emerald-500/40 pl-3 max-w-2xl mx-auto text-left break-words">
             // Clear communicator.<br />
