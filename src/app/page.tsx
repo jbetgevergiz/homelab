@@ -257,7 +257,7 @@ export default function Home() {
             <div className="w-1 h-7 rounded-full bg-slate-600"></div>
             <h2 className="text-3xl font-bold text-white tracking-tight">Projects & Experience</h2>
           </div>
-          <p className="text-slate-400 text-sm italic mb-8">Marcus was right: proof beats potential. So this page leads with evidence.</p>
+          <p className="text-slate-400 text-sm italic mb-8">This page leads with proof: real support work, real infrastructure, and projects I can actually talk through.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
             {coreProjects.map((project) => (
